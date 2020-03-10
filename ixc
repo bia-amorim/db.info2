@@ -1,0 +1,12 @@
+
+select count(*) as Reincidencias,
+    t2.razao as Cliente, 
+    t1.data_criacao as Data_Abertura
+		from su_ticket as t1
+			left join cliente as t2 on 
+			(t2.id=t1.id_cliente) 
+			where data_criacao between '2020-02-01 00:00:00' and '2020-02-29 23:59:59' 
+				 and t2.razao is not null
+					group by t2.razao, t1.data_criacao
+						having count(*) >1
+							order by Reincidencias
