@@ -1,0 +1,65 @@
+import javax.swing.JOptionPane; 
+
+public class BeatrizAmorim {
+
+
+	public static void main(String[] args) {
+		
+		 // declaração de variáveis
+		 String nome;
+		 String sobrenome;
+		 String nomeCompleto;
+		 String login;
+		 String ultimoSobrenome;
+		 String matricula;
+		 Integer tamanhoNome;
+		 String idCurso;
+		 String sexo;
+		 String senha;
+		 
+		 	//entradas das variáveis
+		 	matricula = JOptionPane.showInputDialog("Digite a sua matrícula: ");
+		 	nome = JOptionPane.showInputDialog("Digite o seu nome: ");
+			sobrenome = JOptionPane.showInputDialog("Digite o seu sobrenome: ");
+			ultimoSobrenome = JOptionPane.showInputDialog("Reescreva seu último sobrenome");
+			
+				//ação das variáveis
+				nomeCompleto = nome + " " + sobrenome;
+				login = nome + "." + ultimoSobrenome;
+				tamanhoNome = nomeCompleto.length();
+				idCurso = matricula.substring(7,9);
+				sexo = matricula.substring(10);
+				
+				//teste das variáveis
+				System.out.println(nomeCompleto);
+				System.out.println(ultimoSobrenome);
+				System.out.println(tamanhoNome);
+				System.out.println(idCurso);
+				System.out.println(sexo);
+				
+					//saídas das variáveis
+					
+					if (idCurso.equals("10"))
+						System.out.println("Análise e Desenvolvimento de Sistemas");
+					else if (idCurso.equals("20"))
+						System.out.println("Redes de Computadores");
+					else if (idCurso.equals("30"))
+						System.out.println("Banco de Dados"); 				
+				
+					if (sexo.equals("1"))
+						JOptionPane.showMessageDialog(null, nomeCompleto + " seja bem-vindo ao curso de: " + idCurso);
+					else if (sexo.equals("2"))
+						JOptionPane.showMessageDialog(null, nomeCompleto + " seja bem-vinda ao curso de: " + idCurso);
+					
+					JOptionPane.showMessageDialog(null, "Seu login no sistema será: " + login);
+					
+					//JOptionPane.showMessageDialog(null, "Sua senha será: " + senha);
+						
+						
+						
+						
+						
+			
+	}
+
+}
