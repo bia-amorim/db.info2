@@ -6,7 +6,7 @@ public class BeatrizPEA3 {
 		
 		//declaração de variáveis
 		String nome;
-		String opcaoCerveja;
+		String opcaoCerveja, nomeCerveja;
 		String localidade;
 		Integer quantidade;
 		double valorLager;
@@ -23,41 +23,51 @@ public class BeatrizPEA3 {
 		double valorComImposto;
 		
 		//atribuição de valores
-		valorLager = (2.40);
-		valorPilsen = (2.10);
-		impostoA = (0.60);
-		impostoB = (0.65);
-		impostoC = (0.80);
-		descontoA = (0.10);
-		descontoB = (0.02);
+		valorLager = 2.40;
+		valorPilsen = 2.10;
+		impostoA = 0.60;
+		impostoB = 0.65;
+		impostoC = 0.80;
+		descontoA = 0.10;
+		descontoB = 0.02;
 		
 		
 		//entrada de variáveis
 		nome = JOptionPane.showInputDialog("Digite o seu nome");
 		quantidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade da cerveja escolhida: "));
 		opcaoCerveja = JOptionPane.showInputDialog("Digite a opção da cerveja, sendo 1-Lager ou 2-Pilsen: ");
-		localidade = JOptionPane.showInputDialog("Digite sua localidade sendo A-Dentro do estado SC, B-Fora do estado SC ou C-Fora do Brasil: ");	
-		 
-
-		if (opcaoCerveja.equals("1"))
-			System.out.println(valorBruto = quantidade * valorLager);
-			else if (opcaoCerveja.equals("2"))
-				System.out.println(valorBruto = quantidade * valorPilsen);
+		localidade = JOptionPane.showInputDialog("Digite sua localidade sendo A-Dentro do estado SC, B-Fora do estado SC ou C-Fora do Brasil: ");
 		
+		//zerando valores
+		valorBruto = 0.0;
+		valorDesconto = 0.0;
+		valorComImposto = 0.0;
+		nomeCerveja = "";
+
+		if (opcaoCerveja.equals("1")) {
+			nomeCerveja = "Lager";
+			System.out.println(valorBruto = quantidade * valorLager);
+		}
+			else if (opcaoCerveja.equals("2")) {
+				nomeCerveja = "Pilsen";
+				System.out.println(valorBruto = quantidade * valorPilsen);
+			}
 		if (quantidade <= 1000)
-			System.out.println(valorDesconto = valorBruto - (valorBruto * 0.10));
+			System.out.println(valorDesconto = (valorBruto * 0.10));
 				else if (quantidade > 1000)
 					System.out.println(valorDesconto = valorBruto - (valorBruto * 0.02));
 			
 		
 		if (localidade.equalsIgnoreCase("A"))
-			System.out.println(valorComImposto = (valorBruto - valorDesconto) * impostoA);
+			System.out.println(valorComImposto = (valorBruto * impostoA) + valorBruto);
 			else if (localidade.equalsIgnoreCase("B"))
 				System.out.println(valorComImposto = (valorBruto - valorDesconto) * impostoB);
 					else if (localidade.equalsIgnoreCase("C"))
 						System.out.println(valorComImposto = (valorBruto - valorDesconto) * impostoC);
-		
+		//calculo do Valor total
+		valorTotal = valorComImposto - valorDesconto;
+		//Mostra a compra
+		System.out.println("O(A) cliente(a): "+ nome +" comprou "+quantidade+" da cerveja "+nomeCerveja+" sua compra deu um total com impostos de R$ "+valorTotal);
 		
 	}
-
 }
